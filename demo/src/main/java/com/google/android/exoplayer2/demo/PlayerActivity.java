@@ -1078,7 +1078,7 @@ public class PlayerActivity extends Activity implements OnClickListener, ExoPlay
   @SuppressLint("SimpleDateFormat")
   public void sendState(String clientState) {
 
-    //Log.d(TAG_PLAY,"sendState");
+    Log.d(TAG_PLAY,"sendState");
 
     Log.d(TAG_PLAY,"Response Quality : " + Util.responseHeader);
 
