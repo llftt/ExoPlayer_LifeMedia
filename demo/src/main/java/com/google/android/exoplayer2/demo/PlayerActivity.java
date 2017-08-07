@@ -1017,7 +1017,7 @@ public class PlayerActivity extends Activity implements OnClickListener, ExoPlay
   }
 
   public void reloadVideo(boolean proxyEnable) {
-    Log.d(TAG_PLAY,"reloadVideo");
+    //Log.d(TAG_PLAY,"reloadVideo");
     Intent intent = getIntent();
     String videoUri = currentVideoURL;
     int videoType = 0;
