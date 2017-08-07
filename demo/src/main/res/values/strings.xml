@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <string name="selection_disabled">Disabled</string>
+
+  <string name="selection_default">Default</string>
+
+  <string name="selection_default_none">Default (none)</string>
+
+  <string name="unexpected_intent_action">Unexpected intent action: <xliff:g id="action">%1$s</xliff:g></string>
+
+  <string name="enable_random_adaptation">Enable random adaptation</string>
+
+  <string name="error_unsupported_video">Media includes video tracks, but none are playable by this device</string>
+
+  <string name="error_unsupported_audio">Media includes audio tracks, but none are playable by this device</string>
+
+  <string name="sample_list_load_error">One or more sample lists failed to load</string>
+
+  <string name="application_name">라이프미디어 플레이어 2.3</string>
+
+  <string name="enable_background_audio">백그라운드에서 실행</string>
+
+  <string name="enable_proxy">QoS 향상 모드 설정</string>
+
+  <string name="video">비디오 설정</string>
+
+  <string name="audio">오디오 설정</string>
+
+  <string name="text">Text</string>
+
+  <string name="logging">로그</string>
+
+  <string name="logging_normal">기본</string>
+
+  <string name="logging_verbose">자세히</string>
+
+  <string name="retry">재시작</string>
+
+  <string name="off">끄기</string>
+
+  <string name="on">켜기</string>
+
+  <string name="context_aware">상황 인지 적용</string>
+
+  <string name="error_drm_not_supported">API 18레벨 이하에서는 보호된 컨텐츠가 지원되지 않습니다.</string>
+
+  <string name="error_drm_unsupported_scheme">본 장치는 DRM을 지원하지 않습니다.</string>
+
+  <string name="error_drm_unknown">알수 없는 DRM 오류가 발생했습니다.</string>
+
+  <string name="error_no_decoder">본 장치에서는 <xliff:g id="mime_type">%1$s 디코더를 지원하지 않습니다. </xliff:g></string>
+
+  <string name="error_no_secure_decoder">본 장치에서는 <xliff:g id="mime_type">암호화된 %1$s 디코더를 지원하지 않습니다.</xliff:g></string>
+
+  <string name="error_querying_decoders">장치의 디코더를 조회할 수 없습니다.</string>
+
+  <string name="error_instantiating_decoder">디코더를 초기화 할 수 없습니다. <xliff:g id="decoder_name">%1$s</xliff:g></string>
+
+  <string name="storage_permission_denied">저장소 액세스에 대한 권한이 없습니다. </string>
+
+  <string name="failed">재생 실패</string>
+
+</resources>
