@@ -256,6 +256,9 @@ public class DefaultDashChunkSource implements DashChunkSource {
     out.chunk = newMediaChunk(representationHolder, dataSource, trackSelection.getSelectedFormat(),
         trackSelection.getSelectionReason(), trackSelection.getSelectionData(), segmentNum,
         maxSegmentCount);
+    
+    Log.d("Test", "SegmentNum : " + String.valueOf(segmentNum));
+    
   }
 
   @Override
@@ -274,6 +277,9 @@ public class DefaultDashChunkSource implements DashChunkSource {
         }
       }
     }
+    
+     Log.d("Test", "Chunk Length : " + String.valueOf((((double)(chunk.endTimeUs - chunk.startTimeUs) / 1000) / 1000)));
+    
   }
 
   @Override
