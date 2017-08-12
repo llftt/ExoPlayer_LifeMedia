@@ -44,12 +44,14 @@ import android.provider.Settings.Secure;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -85,6 +87,7 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.MappingTrackSelector.MappedTrackInfo;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.DebugTextViewHelper;
 import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
@@ -331,9 +334,56 @@ public class PlayerActivity extends Activity implements OnClickListener, ExoPlay
     }
 
    else if (view == resolutionButton){
-     /* FrameLayout fr = (FrameLayout)findViewById(R.id.root);
-      LinearLayout li = (LinearLayout)findViewById(R.id.abc);
-      li.setLayoutParams(new FrameLayout.LayoutParams(30,60));*/
+      PopupMenu popup = new PopupMenu(this, view);
+
+      Menu menu = popup.getMenu();
+      menu.add(Menu.NONE, 0, Menu.NONE, R.string.p240);
+      menu.add(Menu.NONE, 1, Menu.NONE, R.string.p360);
+      menu.add(Menu.NONE, 2, Menu.NONE, R.string.p480);
+      menu.add(Menu.NONE, 3, Menu.NONE, R.string.p720);
+      menu.add(Menu.NONE, 4, Menu.NONE, R.string.p1080);
+
+      popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+          SimpleExoPlayerView player = (SimpleExoPlayerView)findViewById(R.id.player_view);
+          player.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIXED_HEIGHT);
+          ViewGroup.LayoutParams lp = player.getVideoSurfaceView().getLayoutParams();
+
+          switch(item.getItemId()) {
+            case 0:
+              lp.width = 426;
+              lp.height= 240;
+              player.getVideoSurfaceView().setLayoutParams(lp);
+              break;
+            case 1:
+              lp.width = 640;
+              lp.height= 360;
+              player.getVideoSurfaceView().setLayoutParams(lp);
+              break;
+            case 2:
+              lp.width = 854;
+              lp.height= 480;
+              player.getVideoSurfaceView().setLayoutParams(lp);
+              break;
+            case 3:
+              lp.width = 1280;
+              lp.height= 720;
+              player.getVideoSurfaceView().setLayoutParams(lp);
+              break;
+            case 4:
+              lp.width = 1920;
+              lp.height= 1080;
+              player.getVideoSurfaceView().setLayoutParams(lp);
+              break;
+          }
+          return false;
+        }
+      });
+
+      popup.show();
+
+//      player.getVideoSurfaceView().setForegroundGravity(Gravity.CENTER);
     }
 
     else if (view.getParent() == debugRootView) {
@@ -1017,7 +1067,7 @@ public class PlayerActivity extends Activity implements OnClickListener, ExoPlay
   }
 
   public void reloadVideo(boolean proxyEnable) {
-    //Log.d(TAG_PLAY,"reloadVideo");
+    Log.d(TAG_PLAY,"reloadVideo");
     Intent intent = getIntent();
     String videoUri = currentVideoURL;
     int videoType = 0;
@@ -1084,8 +1134,6 @@ public class PlayerActivity extends Activity implements OnClickListener, ExoPlay
 
     String ProxyURL = getServerURL("ProxyURL");
     String ProxyPort = getServerURL("ProxyPort");
-
-
     ProxyURL = ProxyURL + ":" + ProxyPort + "/dash_lifemedia/lifemedia-monitoring/MonitorServlet?";
     Map<String, String> requestHeader = new HashMap<String, String>();
     requestHeader.put("X-LifeMedia-AndroidID", Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID));
