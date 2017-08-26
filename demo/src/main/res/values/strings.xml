@@ -77,9 +77,13 @@
   <string name="failed">재생 실패</string>
 
   <string name="p240"> 240P </string>
+     
   <string name="p360"> 360P </string>
+     
   <string name="p480"> 480P </string>
+     
   <string name="p720"> 720P </string>
+     
   <string name="p1080"> 1080P </string>
 
 </resources>
